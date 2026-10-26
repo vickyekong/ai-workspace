@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-documents-set-project"
+description = "Enables the documents_set_project command without any pre-configured scope."
+commands.allow = ["documents_set_project"]
+
+[[permission]]
+identifier = "deny-documents-set-project"
+description = "Denies the documents_set_project command without any pre-configured scope."
+commands.deny = ["documents_set_project"]

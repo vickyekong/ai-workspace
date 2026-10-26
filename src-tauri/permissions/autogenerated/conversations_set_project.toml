@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-conversations-set-project"
+description = "Enables the conversations_set_project command without any pre-configured scope."
+commands.allow = ["conversations_set_project"]
+
+[[permission]]
+identifier = "deny-conversations-set-project"
+description = "Denies the conversations_set_project command without any pre-configured scope."
+commands.deny = ["conversations_set_project"]

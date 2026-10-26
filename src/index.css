@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+/* Only true when running inside the native window with vibrancy enabled. */
+@custom-variant native (&:is(.native *));
+
+@theme inline {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
+  --font-heading:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-hairline: var(--hairline);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+
+  --ease-mac: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Accent palettes, selected via <html data-accent="…">. */
+:root,
+[data-accent="blue"] {
+  --brand-h: 252;
+  --brand-c: 0.19;
+}
+[data-accent="violet"] {
+  --brand-h: 292;
+  --brand-c: 0.19;
+}
+[data-accent="teal"] {
+  --brand-h: 190;
+  --brand-c: 0.12;
+}
+[data-accent="amber"] {
+  --brand-h: 62;
+  --brand-c: 0.16;
+}
+[data-accent="graphite"] {
+  --brand-h: 260;
+  --brand-c: 0.01;
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0.625rem;
+
+  --brand: oklch(0.58 var(--brand-c) var(--brand-h));
+  --brand-foreground: oklch(0.99 0 0);
+  --brand-soft: oklch(0.58 var(--brand-c) var(--brand-h) / 12%);
+
+  --background: oklch(0.995 0 0);
+  --surface: oklch(0.985 0.002 260);
+  --surface-raised: oklch(1 0 0);
+  --foreground: oklch(0.2 0.005 260);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0 / 92%);
+  --popover-foreground: var(--foreground);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.955 0.003 260);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.955 0.003 260);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --accent: oklch(0.94 0.004 260);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.58 0.22 27);
+  --success: oklch(0.62 0.15 150);
+  --warning: oklch(0.72 0.15 70);
+  --border: oklch(0.2 0.01 260 / 10%);
+  --hairline: oklch(0.2 0.01 260 / 7%);
+  --input: oklch(0.2 0.01 260 / 12%);
+  --ring: oklch(0.58 var(--brand-c) var(--brand-h) / 55%);
+
+  --sidebar: oklch(0.955 0.004 260);
+  --sidebar-foreground: oklch(0.25 0.008 260);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--brand-foreground);
+  --sidebar-accent: oklch(0.2 0.01 260 / 8%);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: oklch(0.2 0.01 260 / 8%);
+  --sidebar-ring: var(--ring);
+
+  --shadow-window: 0 0 0 0.5px oklch(0 0 0 / 8%), 0 1px 2px oklch(0 0 0 / 4%);
+  --shadow-float: 0 0 0 0.5px oklch(0 0 0 / 8%), 0 8px 28px -6px oklch(0 0 0 / 16%);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --brand: oklch(0.66 var(--brand-c) var(--brand-h));
+  --brand-soft: oklch(0.66 var(--brand-c) var(--brand-h) / 18%);
+
+  --background: oklch(0.195 0.004 260);
+  --surface: oklch(0.215 0.004 260);
+  --surface-raised: oklch(0.245 0.005 260);
+  --foreground: oklch(0.95 0.003 260);
+  --card: oklch(0.235 0.005 260);
+  --popover: oklch(0.255 0.005 260 / 92%);
+  --secondary: oklch(0.27 0.005 260);
+  --muted: oklch(0.27 0.005 260);
+  --muted-foreground: oklch(0.68 0.01 260);
+  --accent: oklch(0.29 0.006 260);
+  --destructive: oklch(0.68 0.19 24);
+  --success: oklch(0.72 0.15 150);
+  --warning: oklch(0.8 0.14 75);
+  --border: oklch(1 0 0 / 10%);
+  --hairline: oklch(1 0 0 / 6%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.66 var(--brand-c) var(--brand-h) / 60%);
+
+  --sidebar: oklch(0.225 0.004 260);
+  --sidebar-foreground: oklch(0.88 0.004 260);
+  --sidebar-accent: oklch(1 0 0 / 9%);
+  --sidebar-border: oklch(1 0 0 / 8%);
+
+  --shadow-window: 0 0 0 0.5px oklch(1 0 0 / 8%), 0 1px 2px oklch(0 0 0 / 30%);
+  --shadow-float: 0 0 0 0.5px oklch(1 0 0 / 10%), 0 12px 32px -8px oklch(0 0 0 / 55%);
+}
+
+/*
+ * In the native window the macOS NSVisualEffectView sits behind the webview,
+ * so the sidebar only needs a faint tint to stay legible over wallpapers.
+ */
+.native {
+  --sidebar: oklch(0.97 0.003 260 / 45%);
+}
+.native.dark {
+  --sidebar: oklch(0.2 0.004 260 / 38%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+  html {
+    @apply font-sans;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-sidebar text-foreground;
+    /* Desktop apps don't select chrome text or show the I-beam over it. */
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+  .native body {
+    background: transparent;
+  }
+  input,
+  textarea,
+  [contenteditable="true"],
+  .selectable {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  button,
+  [role="button"],
+  a {
+    cursor: default;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 1px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.5 0 0 / 30%) transparent;
+  }
+  .glass {
+    background: color-mix(in oklch, var(--popover) 88%, transparent);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-documents-remove"
+description = "Enables the documents_remove command without any pre-configured scope."
+commands.allow = ["documents_remove"]
+
+[[permission]]
+identifier = "deny-documents-remove"
+description = "Denies the documents_remove command without any pre-configured scope."
+commands.deny = ["documents_remove"]

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-conversations-delete"
+description = "Enables the conversations_delete command without any pre-configured scope."
+commands.allow = ["conversations_delete"]
+
+[[permission]]
+identifier = "deny-conversations-delete"
+description = "Denies the conversations_delete command without any pre-configured scope."
+commands.deny = ["conversations_delete"]
